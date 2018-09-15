@@ -1,0 +1,16 @@
+h1{
+    margin:0;
+    font-weight: bold;
+    color:white;
+    
+}
+nav{
+
+    position: absolute;
+    top:0px;
+    left:50px;
+    font-size: xx-large;
+    
+}
+a{
+    margin-left: 50px;}

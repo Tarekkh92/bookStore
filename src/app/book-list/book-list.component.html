@@ -1,0 +1,38 @@
+
+<mat-card>
+        <mat-card-header>
+          <mat-toolbar class="toolbar">
+            <mat-icon (click)="addBook()">Add Book+</mat-icon>
+          </mat-toolbar>
+        </mat-card-header>
+        
+        <div class=form-group>
+                <input type="text" id="searchBox" class="form-control" placeholder="Search By Book Title" style="width:300px" [(ngModel)]="searchTerm">
+        </div>
+        
+        <mat-card-content>
+        <div class="container">
+        <div class="table-responsive">
+          <table  class="table table-hover table-sm  table-dark">
+            <thead class="table-primary">
+                    <th>ID</th>  
+                    <th>Author Name</th>
+                    <th>Book title</th> 
+                    <th>Date</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                    
+            </thead>
+            <tr  *ngFor="let b of books | bookFilter:searchTerm"> 
+                    <td>{{b._id}}</td>
+                    <td>{{b.authorName}}</td>
+                    <td>{{b.bookTitle |  titlecase | bookTitleReplace}}</td>
+                    <td>{{b.publishedDate}}</td>
+                    <td><input id="{{b._id}}" type="button" class="btn btn-success" value="Edit"  (click)="editBook($event,b.authorName,b.bookTitle,b.publishedDate)"></td>
+                    <td><input id="{{b._id}}" type="button" class="btn btn-danger" value="Delete"  (click)="deleteBook($event)"></td>
+            </tr>
+          </table>
+          </div>
+        </div>
+      </mat-card-content>
+</mat-card>

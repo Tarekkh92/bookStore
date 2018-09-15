@@ -1,0 +1,7 @@
+<form [formGroup]="deleteForm" (ngSubmit)="deleteBook()" >
+        <label>Are You Sure??</label>
+        <mat-card-content>
+            <button type="submit" class="btn btn-danger" >Ok</button>
+            <button type="button" class="btn btn-default" (click)="onNoClick()">Cancel</button>
+        </mat-card-content>
+</form>
